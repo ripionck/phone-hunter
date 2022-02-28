@@ -15,11 +15,15 @@
     <h1 class="text-center mt-5">Find Your Favourite Phone</h1>
     <!-- search field and button -->
     <div class="input-group mb-3 mt-4 w-50 mx-auto">
-        <input type="text" class="form-control" placeholder="Search your phone" aria-label="Recipient's username"
-            aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+        <input id="input-value" type="text" class="form-control" placeholder="Search your phone"
+            aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button"
+            id="button-addon2">Submit</button>
     </div>
 
+    <!-- result area -->
+    <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+    </div>
 
 
     <script src="app.js"></script>
