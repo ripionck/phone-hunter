@@ -13,23 +13,26 @@
 
 <body>
     <h1 class="text-center mt-5">Find Your Favourite Phone</h1>
-    <!-- search field and button -->
-    <div class="input-group mb-3 mt-4 w-50 mx-auto">
-        <input id="input-value" type="text" class="form-control" placeholder="Search your phone"
-            aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button"
-            id="button-addon2">Search</button>
+    <div class="container">
+        <!-- search field and button -->
+        <div class="input-group mb-3 mt-4 w-50 mx-auto">
+            <input id="input-value" type="text" class="form-control" placeholder="Search your phone"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="searchPhone()" class="btn btn-outline-secondary" type="button"
+                id="button-addon2">Search</button>
+        </div>
+        <h2 id="error" class="text-danger text-center"></h2>
+
+        <!-- single details -->
+        <div id="single-details" class="row row-cols-1 w-50 mx-auto">
+
+        </div>
+
+        <!-- result area -->
+        <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+        </div>
+
     </div>
-
-    <!-- single details -->
-    <div id="single-details" class="row row-cols-1 w-50 mx-auto">
-
-    </div>
-
-    <!-- result area -->
-    <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
-    </div>
-
 
     <script src="app.js"></script>
 </body>
