@@ -1,14 +1,17 @@
 const searchResult = document.getElementById
     ("search-result");
+const showDetails = document.getElementById("single-details");
+//search phone
 const searchPhone = () => {
     const inputText = document.getElementById("input-value");
     const inputValue = inputText.value;
     //console.log(inputValue);
     const error = document.getElementById("error");
-    if (inputValue <= 0 || inputValue == "") {
-        error.innerText = "please input valid name";
+    if (inputValue < 0 || inputValue == "") {
+        error.innerText = "Please input valid name";
         inputText.value = "";
         searchResult.innerHTML = "";
+        showDetails.innerHTML = "";
     }
     else {
         const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`;
@@ -17,10 +20,10 @@ const searchPhone = () => {
             .then(data => displaySearchResult(data.data))
 
         inputText.value = "";
-        searchResult.innerHTML = "";
+        showDetails.innerHTML = "";
     }
 }
-
+//display search result
 const displaySearchResult = data => {
     // console.log(data);
     // const searchResult = document.getElementById
@@ -31,7 +34,6 @@ const displaySearchResult = data => {
         // console.log(phone)
         const div = document.createElement("div");
         div.classList.add("col");
-        //searchResult.innerHTML = "";
         div.innerHTML = `
             <div class="card">
                 <img width="200px" height="400px" src="${phone.image}" class="card-img-top" alt="...">
@@ -45,7 +47,7 @@ const displaySearchResult = data => {
         searchResult.appendChild(div);
     })
 }
-
+//get single data
 const details = (info) => {
     const url = `https://openapi.programming-hero.com/api/phone/${info}`
     //console.log(url)
@@ -54,10 +56,10 @@ const details = (info) => {
         .then(data => displayDetails(data.data))
 }
 
-
+// display single details
 const displayDetails = data => {
     //console.log(data);
-    const showDetails = document.getElementById("single-details");
+    // const showDetails = document.getElementById("single-details");
     searchResult.innerHTML = "";
     const div = document.createElement("div");
     div.classList.add("div");
@@ -65,6 +67,7 @@ const displayDetails = data => {
             <div class="card">
                 <img width="250px" height="400px" src="${data.image}" class="card-img-top" alt="...">
                 <div class="card-body">
+                   <h2 class="fw-bold text-center">${data.name}</h2>
                    <p class="card-text"><span class="fw-bold">Release Date:</span> ${data.releaseDate}</p>
                    <p class="card-text"><span class="fw-bold">Storage:</span> ${data.mainFeatures.storage}</p>
                    <p class="card-text"><span class="fw-bold">Memory:</span> ${data.mainFeatures.memory}</p>
