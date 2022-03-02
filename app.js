@@ -67,11 +67,23 @@ const displayDetails = data => {
             <div class="card">
                 <img width="250px" height="400px" src="${data.image}" class="card-img-top" alt="...">
                 <div class="card-body">
-                   <h2 class="fw-bold text-center">${data.name}</h2>
-                   <p class="card-text"><span class="fw-bold">Release Date:</span> ${data.releaseDate}</p>
-                   <p class="card-text"><span class="fw-bold">Storage:</span> ${data.mainFeatures.storage}</p>
-                   <p class="card-text"><span class="fw-bold">Memory:</span> ${data.mainFeatures.memory}</p>
-                   <p class="card-text"><span class="fw-bold">Sensor:</span> ${data.mainFeatures.sensors}</p>
+                   <div>
+                        <h4 class="fw-bold">Main Features:</h4>
+                        <p class="card-text"><span class="fw-bold">Storage:</span> ${data.mainFeatures.storage}</p>
+                        <p class="card-text"><span class="fw-bold">Display:</span> ${data.mainFeatures.displaySize}</p>
+                        <p class="card-text"><span class="fw-bold">Chip set:</span> ${data.mainFeatures.chipSet}</p>
+                        <p class="card-text"><span class="fw-bold">Memory:</span> ${data.mainFeatures.memory}</p>
+                        <p class="card-text"><span class="fw-bold">Sensor:</span> ${data.mainFeatures.sensors}</p>
+                   </div>
+                   <div>
+                        <h4 class="fw-bold">Others:</h4>
+                        <p class="card-text"><span class="fw-bold">WLAN:</span> ${data.others.WLAN}</p>
+                        <p class="card-text"><span class="fw-bold">Bluetooth:</span> ${data.Bluetooth}</p>
+                        <p class="card-text"><span class="fw-bold">GPS:</span> ${data.GPS}</p>
+                        <p class="card-text"><span class="fw-bold">NFC:</span> ${data.NFC}</p>
+                        <p class="card-text"><span class="fw-bold">Radio:</span> ${data.Radio}</p>
+                        <p class="card-text"><span class="fw-bold">USB:</span> ${data.USB}</p>
+                   </div>
                 </div>
             </div>
         `
