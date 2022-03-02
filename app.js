@@ -42,9 +42,9 @@ const displaySearchResult = data => {
             <div class="card">
                 <img width="200px" height="400px" src="${phone.image}" class="card-img-top" alt="...">
                <div class="card-body">
-                  <h5 class="card-title">${phone.phone_name}</h5>
-                  <p class="card-text">${phone.brand}</p>
-                  <a href="#single-details"><button onclick="details('${phone.slug}')"class="rounded">Details</button></a>
+                  <h4 class="card-title fw-bold">${phone.phone_name}</h4>
+                  <h5 class="card-text fw-bold">${phone.brand}</h5>
+                  <a href="#single-details"><button onclick="details('${phone.slug}')"class="rounded px-3 fw-bold">Details</button></a>
                </div>
             </div>
         `
@@ -71,7 +71,7 @@ const displayDetails = data => {
     }
     div.innerHTML = `
             <div class="card">
-                <img width="200px" height="480px" src="${data.image}" class="card-img-top" alt="...">
+                <img width="250px" height="550px" src="${data.image}" class="card-img-top" alt="...">
                 <div class="card-body">
                    <div>
                         <h4 class="fw-bold">Main Features:</h4>
