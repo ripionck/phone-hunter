@@ -34,7 +34,7 @@ const displaySearchResult = data => {
     }
     searchResult.innerHTML = "";
     const first20DPhone = data.slice(0, 20);
-    first20DPhone?.forEach(phone => {
+    first20DPhone.forEach(phone => {
         // console.log(phone)
         const div = document.createElement("div");
         div.classList.add("col");
@@ -44,7 +44,7 @@ const displaySearchResult = data => {
                <div class="card-body">
                   <h5 class="card-title">${phone.phone_name}</h5>
                   <p class="card-text">${phone.brand}</p>
-                  <button onclick="details('${phone.slug}')"class="rounded">Details</button>
+                  <a href="#single-details"><button onclick="details('${phone.slug}')"class="rounded">Details</button></a>
                </div>
             </div>
         `
@@ -63,7 +63,7 @@ const details = (info) => {
 // display single details
 const displayDetails = data => {
     // const showDetails = document.getElementById("single-details");
-    searchResult.innerHTML = "";
+    showDetails.innerHTML = "";
     const div = document.createElement("div");
     div.classList.add("div");
     if (data.others === undefined || data.releaseDate.length <= 0) {
@@ -71,7 +71,7 @@ const displayDetails = data => {
     }
     div.innerHTML = `
             <div class="card">
-                <img width="250px" height="450px" src="${data.image}" class="card-img-top" alt="...">
+                <img width="200px" height="480px" src="${data.image}" class="card-img-top" alt="...">
                 <div class="card-body">
                    <div>
                         <h4 class="fw-bold">Main Features:</h4>
@@ -97,4 +97,5 @@ const displayDetails = data => {
             </div>
         `
     showDetails.appendChild(div);
+    document.body.scrollTop = 0;
 }
