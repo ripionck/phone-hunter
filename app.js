@@ -62,13 +62,14 @@ const details = (info) => {
 
 // display single details
 const displayDetails = data => {
+    console.log(data);
     // const showDetails = document.getElementById("single-details");
     showDetails.innerHTML = "";
     const div = document.createElement("div");
     div.classList.add("div");
     if (data.others === undefined || data.releaseDate.length <= 0) {
         data.releaseDate = "Not Found";
-    }
+    };
     div.innerHTML = `
             <div class="card">
                 <img width="250px" height="550px" src="${data.image}" class="card-img-top" alt="...">
@@ -97,5 +98,4 @@ const displayDetails = data => {
             </div>
         `
     showDetails.appendChild(div);
-    document.body.scrollTop = 0;
 }
