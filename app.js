@@ -1,11 +1,11 @@
 const searchResult = document.getElementById
     ("search-result");
 const showDetails = document.getElementById("single-details");
+
 //search phone
 const searchPhone = () => {
     const inputText = document.getElementById("input-value");
     const inputValue = inputText.value;
-    //console.log(inputValue);
     const error = document.getElementById("error");
     if (inputValue < 0 || inputValue == "") {
         error.innerText = "Not Found";
@@ -23,14 +23,18 @@ const searchPhone = () => {
         showDetails.innerHTML = "";
     }
 }
+
 //display search result
 const displaySearchResult = data => {
-    //console.log(data);
     // const searchResult = document.getElementById
     // ("search-result");
     error.innerText = "";
+    if (data.length == 0) {
+        error.innerText = "Not Found";
+    }
+    searchResult.innerHTML = "";
     const first20DPhone = data.slice(0, 20);
-    first20DPhone.forEach(phone => {
+    first20DPhone?.forEach(phone => {
         // console.log(phone)
         const div = document.createElement("div");
         div.classList.add("col");
@@ -45,12 +49,12 @@ const displaySearchResult = data => {
             </div>
         `
         searchResult.appendChild(div);
-    })
+    });
 }
+
 //get single data
 const details = (info) => {
     const url = `https://openapi.programming-hero.com/api/phone/${info}`
-    //console.log(url)
     fetch(url)
         .then(response => response.json())
         .then(data => displayDetails(data.data))
@@ -58,7 +62,6 @@ const details = (info) => {
 
 // display single details
 const displayDetails = data => {
-    //console.log(data);
     // const showDetails = document.getElementById("single-details");
     searchResult.innerHTML = "";
     const div = document.createElement("div");
